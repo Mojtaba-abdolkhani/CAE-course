@@ -1,0 +1,519 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.openAuxMdb(pathName='C:/Temp/moj/midmax/model-main.cae')
+mdb.openAuxMdb(pathName='C:/Temp/moj/midmax/model-main.cae')
+mdb.copyAuxMdbModel(fromName='Model-1', toName='Model-1')
+mdb.copyAuxMdbModel(fromName='Model-1', toName='Model-1')
+mdb.closeAuxMdb()
+mdb.models['Model-1'].rootAssembly.setElementType(elemTypes=(ElemType(
+    elemCode=CPE4R, elemLibrary=STANDARD, secondOrderAccuracy=OFF, 
+    hourglassControl=DEFAULT, distortionControl=DEFAULT), ElemType(
+    elemCode=CPE3, elemLibrary=STANDARD)), regions=(
+    mdb.models['Model-1'].rootAssembly.instances['Part-1-1'].faces.getSequenceFromMask(
+    ('[#1 ]', ), ), ))
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['Part-1-1'], ))
+mdb.models['Model-1'].rootAssembly.Set(faces=
+    mdb.models['Model-1'].rootAssembly.instances['Part-1-1'].faces.getSequenceFromMask(
+    ('[#1 ]', ), ), name='Set-6')
+mdb.models['Model-1'].RemeshingRule(coarseningFactor=DEFAULT_LIMIT, 
+    description='', elementCountLimit=None, maxSolutionErrorTarget=0.0, 
+    meshBias=7, minSolutionErrorTarget=0.0, name='RemeshingRule-2', 
+    outputFrequency=LAST_INCREMENT, refinementFactor=DEFAULT_LIMIT, region=
+    mdb.models['Model-1'].rootAssembly.sets['Set-6'], sizingMethod=
+    MINIMUM_MAXIMUM, specifyMaxSize=False, specifyMinSize=False, stepName=
+    'Step-1', variables=('ENDENERI', 'MISESERI'))
+mdb.AdaptivityProcess(job=Job(contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, historyPrint=OFF, memory=90, 
+    memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, nodalOutputPrecision=SINGLE, numCpus=1, 
+    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=ANALYSIS, 
+    userSubroutine=''), jobPrefix='', maxIterations=5, name='Adaptivity-1')
+mdb.adaptivityProcesses['Adaptivity-1'].submit()
+mdb.jobs['Adaptivity-1-iter1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 0, 'jobName': 'Adaptivity-1-iter1'})
+mdb.jobs['Adaptivity-1-iter1']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\moj\\midmax\\Adaptivity-1-iter1.odb', 
+    'jobName': 'Adaptivity-1-iter1'})
+mdb.jobs['Adaptivity-1-iter1']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Adaptivity-1-iter1'})
+mdb.jobs['Adaptivity-1-iter1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 3604, 'jobName': 'Adaptivity-1-iter1'})
+mdb.jobs['Adaptivity-1-iter1']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Adaptivity-1-iter1'})
+mdb.jobs['Adaptivity-1-iter1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'Adaptivity-1-iter1'})
+mdb.jobs['Adaptivity-1-iter1']._Message(STATUS, {'totalTime': 0.0, 
+    'attempts': 0, 'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 
+    'step': 1, 'jobName': 'Adaptivity-1-iter1', 'severe': 0, 'iterations': 0, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Adaptivity-1-iter1']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'Adaptivity-1-iter1', 'memory': 24.0})
+mdb.jobs['Adaptivity-1-iter1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'Adaptivity-1-iter1'})
+mdb.jobs['Adaptivity-1-iter1']._Message(STATUS, {'totalTime': 1.0, 
+    'attempts': 1, 'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 
+    'step': 1, 'jobName': 'Adaptivity-1-iter1', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Adaptivity-1-iter1']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Adaptivity-1-iter1'})
+mdb.jobs['Adaptivity-1-iter1']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Adaptivity-1-iter1'})
+mdb.jobs['Adaptivity-1-iter2'].EnvironmentAsDict()
+mdb.jobs['Adaptivity-1-iter2'].EnvironmentAsDict()
+mdb.jobs['Adaptivity-1-iter2']._Message(JOB_SUBMITTED, {
+    'time': 'Fri Apr 10 11:57:14 2020'})
+mdb.jobs['Adaptivity-1-iter1']._Message(JOB_COMPLETED, {
+    'time': 'Fri Apr 10 11:57:08 2020', 'jobName': 'Adaptivity-1-iter1'})
+mdb.jobs['Adaptivity-1-iter2']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 0, 'jobName': 'Adaptivity-1-iter2'})
+mdb.jobs['Adaptivity-1-iter2']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\moj\\midmax\\Adaptivity-1-iter2.odb', 
+    'jobName': 'Adaptivity-1-iter2'})
+mdb.jobs['Adaptivity-1-iter2']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Adaptivity-1-iter2'})
+mdb.jobs['Adaptivity-1-iter2']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 3316, 'jobName': 'Adaptivity-1-iter2'})
+mdb.jobs['Adaptivity-1-iter2']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Adaptivity-1-iter2'})
+mdb.jobs['Adaptivity-1-iter2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'Adaptivity-1-iter2'})
+mdb.jobs['Adaptivity-1-iter2']._Message(STATUS, {'totalTime': 0.0, 
+    'attempts': 0, 'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 
+    'step': 1, 'jobName': 'Adaptivity-1-iter2', 'severe': 0, 'iterations': 0, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Adaptivity-1-iter2']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'Adaptivity-1-iter2', 'memory': 24.0})
+mdb.jobs['Adaptivity-1-iter2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'Adaptivity-1-iter2'})
+mdb.jobs['Adaptivity-1-iter2']._Message(STATUS, {'totalTime': 1.0, 
+    'attempts': 1, 'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 
+    'step': 1, 'jobName': 'Adaptivity-1-iter2', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Adaptivity-1-iter2']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Adaptivity-1-iter2'})
+mdb.jobs['Adaptivity-1-iter2']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Adaptivity-1-iter2'})
+del mdb.adaptivityProcesses['Adaptivity-1']
+#* The adaptivity process is running and cannot be deleted at this point.
+mdb.jobs['Adaptivity-1-iter2']._Message(JOB_COMPLETED, {
+    'time': 'Fri Apr 10 11:57:28 2020', 'jobName': 'Adaptivity-1-iter2'})
+del mdb.adaptivityProcesses['Adaptivity-1']
+del mdb.jobs['Adaptivity-1-iter1']
+del mdb.jobs['Adaptivity-1-iter2']
+mdb.AdaptivityProcess(job=Job(contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, historyPrint=OFF, memory=90, 
+    memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, nodalOutputPrecision=SINGLE, numCpus=1, 
+    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=ANALYSIS, 
+    userSubroutine=''), jobPrefix='', maxIterations=3, name=
+    'Adaptivity-minmax')
+mdb.adaptivityProcesses['Adaptivity-minmax'].submit()
+mdb.jobs['Adaptivity-minmax-iter1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 0, 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(ODB_FILE, {
+    'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\moj\\midmax\\Adaptivity-minmax-iter1.odb', 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(COMPLETED, {
+    'phase': BATCHPRE_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 5232, 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 0, 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(STATUS, {'totalTime': 0.0, 
+    'attempts': 0, 'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter1', 'severe': 0, 
+    'iterations': 0, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'Adaptivity-minmax-iter1', 
+    'memory': 24.0})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 1, 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(STATUS, {'totalTime': 1.0, 
+    'attempts': 1, 'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter1', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(END_STEP, {
+    'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(COMPLETED, {
+    'phase': STANDARD_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter2'].EnvironmentAsDict()
+mdb.jobs['Adaptivity-minmax-iter2'].EnvironmentAsDict()
+mdb.jobs['Adaptivity-minmax-iter2']._Message(JOB_SUBMITTED, {
+    'time': 'Fri Apr 10 12:00:29 2020'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(JOB_COMPLETED, {
+    'time': 'Fri Apr 10 12:00:22 2020', 'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 0, 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(ODB_FILE, {
+    'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\moj\\midmax\\Adaptivity-minmax-iter2.odb', 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(COMPLETED, {
+    'phase': BATCHPRE_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 152, 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 0, 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(STATUS, {'totalTime': 0.0, 
+    'attempts': 0, 'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter2', 'severe': 0, 
+    'iterations': 0, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'Adaptivity-minmax-iter2', 
+    'memory': 27.0})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 1, 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(STATUS, {'totalTime': 1.0, 
+    'attempts': 1, 'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter2', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(END_STEP, {
+    'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(COMPLETED, {
+    'phase': STANDARD_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter3'].EnvironmentAsDict()
+mdb.jobs['Adaptivity-minmax-iter3'].EnvironmentAsDict()
+mdb.jobs['Adaptivity-minmax-iter3']._Message(JOB_SUBMITTED, {
+    'time': 'Fri Apr 10 12:01:05 2020'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(JOB_COMPLETED, {
+    'time': 'Fri Apr 10 12:00:45 2020', 'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 0, 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(ODB_FILE, {
+    'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\moj\\midmax\\Adaptivity-minmax-iter3.odb', 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(COMPLETED, {
+    'phase': BATCHPRE_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 3628, 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 0, 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(STATUS, {'totalTime': 0.0, 
+    'attempts': 0, 'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter3', 'severe': 0, 
+    'iterations': 0, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'Adaptivity-minmax-iter3', 
+    'memory': 77.0})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 1, 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(STATUS, {'totalTime': 1.0, 
+    'attempts': 1, 'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter3', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(END_STEP, {
+    'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(COMPLETED, {
+    'phase': STANDARD_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(JOB_COMPLETED, {
+    'time': 'Fri Apr 10 12:01:41 2020', 'jobName': 'Adaptivity-minmax-iter3'})
+del mdb.models['Model-1'].remeshingRules['RemeshingRule-2']
+del mdb.adaptivityProcesses['Adaptivity-minmax']
+mdb.AdaptivityProcess(job=Job(contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, historyPrint=OFF, memory=90, 
+    memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, nodalOutputPrecision=SINGLE, numCpus=1, 
+    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=ANALYSIS, 
+    userSubroutine=''), jobPrefix='', maxIterations=5, name=
+    'Adaptivity-minmax')
+mdb.adaptivityProcesses['Adaptivity-minmax'].submit()
+mdb.jobs['Adaptivity-minmax-iter1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 0, 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(ODB_FILE, {
+    'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\moj\\midmax\\Adaptivity-minmax-iter1.odb', 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(COMPLETED, {
+    'phase': BATCHPRE_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 4232, 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 0, 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(STATUS, {'totalTime': 0.0, 
+    'attempts': 0, 'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter1', 'severe': 0, 
+    'iterations': 0, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'Adaptivity-minmax-iter1', 
+    'memory': 76.0})
+del mdb.adaptivityProcesses['Adaptivity-minmax']
+#* The adaptivity process is running and cannot be deleted at this point.
+mdb.jobs['Adaptivity-minmax-iter1']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 1, 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(STATUS, {'totalTime': 1.0, 
+    'attempts': 1, 'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter1', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(END_STEP, {
+    'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(COMPLETED, {
+    'phase': STANDARD_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(JOB_COMPLETED, {
+    'time': 'Fri Apr 10 12:04:10 2020', 'jobName': 'Adaptivity-minmax-iter1'})
+del mdb.adaptivityProcesses['Adaptivity-minmax']
+del mdb.jobs['Adaptivity-minmax-iter1']
+del mdb.jobs['Adaptivity-minmax-iter2']
+del mdb.jobs['Adaptivity-minmax-iter3']
+mdb.models['Model-1'].rootAssembly.setElementType(elemTypes=(ElemType(
+    elemCode=CPE4R, elemLibrary=STANDARD, secondOrderAccuracy=OFF, 
+    hourglassControl=DEFAULT, distortionControl=DEFAULT), ElemType(
+    elemCode=CPE3, elemLibrary=STANDARD)), regions=(
+    mdb.models['Model-1'].rootAssembly.instances['Part-1-1'].faces.getSequenceFromMask(
+    ('[#1 ]', ), ), ))
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['Part-1-1'], ))
+mdb.AdaptivityProcess(job=Job(contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, historyPrint=OFF, memory=90, 
+    memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, nodalOutputPrecision=SINGLE, numCpus=1, 
+    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=ANALYSIS, 
+    userSubroutine=''), jobPrefix='', maxIterations=5, name=
+    'Adaptivity-minmax')
+del mdb.adaptivityProcesses['Adaptivity-minmax']
+mdb.AdaptivityProcess(job=Job(contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, historyPrint=OFF, memory=90, 
+    memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, nodalOutputPrecision=SINGLE, numCpus=1, 
+    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=ANALYSIS, 
+    userSubroutine=''), jobPrefix='', maxIterations=5, name=
+    'Adaptivity-minmax')
+mdb.adaptivityProcesses['Adaptivity-minmax'].submit()
+mdb.jobs['Adaptivity-minmax-iter1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 0, 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(ODB_FILE, {
+    'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\moj\\midmax\\Adaptivity-minmax-iter1.odb', 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(COMPLETED, {
+    'phase': BATCHPRE_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 6092, 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 0, 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(STATUS, {'totalTime': 0.0, 
+    'attempts': 0, 'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter1', 'severe': 0, 
+    'iterations': 0, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'Adaptivity-minmax-iter1', 
+    'memory': 24.0})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 1, 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(STATUS, {'totalTime': 1.0, 
+    'attempts': 1, 'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter1', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(END_STEP, {
+    'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(COMPLETED, {
+    'phase': STANDARD_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter2'].EnvironmentAsDict()
+mdb.jobs['Adaptivity-minmax-iter2'].EnvironmentAsDict()
+mdb.jobs['Adaptivity-minmax-iter2']._Message(JOB_SUBMITTED, {
+    'time': 'Fri Apr 10 12:08:37 2020'})
+mdb.jobs['Adaptivity-minmax-iter1']._Message(JOB_COMPLETED, {
+    'time': 'Fri Apr 10 12:08:26 2020', 'jobName': 'Adaptivity-minmax-iter1'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 0, 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(ODB_FILE, {
+    'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\moj\\midmax\\Adaptivity-minmax-iter2.odb', 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(COMPLETED, {
+    'phase': BATCHPRE_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 3256, 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 0, 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(STATUS, {'totalTime': 0.0, 
+    'attempts': 0, 'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter2', 'severe': 0, 
+    'iterations': 0, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'Adaptivity-minmax-iter2', 
+    'memory': 24.0})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 1, 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(STATUS, {'totalTime': 1.0, 
+    'attempts': 1, 'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter2', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(END_STEP, {
+    'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(COMPLETED, {
+    'phase': STANDARD_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter3'].EnvironmentAsDict()
+mdb.jobs['Adaptivity-minmax-iter3'].EnvironmentAsDict()
+mdb.jobs['Adaptivity-minmax-iter3']._Message(JOB_SUBMITTED, {
+    'time': 'Fri Apr 10 12:08:57 2020'})
+mdb.jobs['Adaptivity-minmax-iter2']._Message(JOB_COMPLETED, {
+    'time': 'Fri Apr 10 12:08:51 2020', 'jobName': 'Adaptivity-minmax-iter2'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 0, 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(ODB_FILE, {
+    'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\moj\\midmax\\Adaptivity-minmax-iter3.odb', 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(COMPLETED, {
+    'phase': BATCHPRE_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 4268, 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 0, 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(STATUS, {'totalTime': 0.0, 
+    'attempts': 0, 'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter3', 'severe': 0, 
+    'iterations': 0, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'Adaptivity-minmax-iter3', 
+    'memory': 27.0})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 1, 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(STATUS, {'totalTime': 1.0, 
+    'attempts': 1, 'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter3', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(END_STEP, {
+    'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(COMPLETED, {
+    'phase': STANDARD_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter4'].EnvironmentAsDict()
+mdb.jobs['Adaptivity-minmax-iter4'].EnvironmentAsDict()
+mdb.jobs['Adaptivity-minmax-iter4']._Message(JOB_SUBMITTED, {
+    'time': 'Fri Apr 10 12:09:34 2020'})
+mdb.jobs['Adaptivity-minmax-iter3']._Message(JOB_COMPLETED, {
+    'time': 'Fri Apr 10 12:09:12 2020', 'jobName': 'Adaptivity-minmax-iter3'})
+mdb.jobs['Adaptivity-minmax-iter4']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 0, 
+    'jobName': 'Adaptivity-minmax-iter4'})
+mdb.jobs['Adaptivity-minmax-iter4']._Message(ODB_FILE, {
+    'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\moj\\midmax\\Adaptivity-minmax-iter4.odb', 
+    'jobName': 'Adaptivity-minmax-iter4'})
+mdb.jobs['Adaptivity-minmax-iter4']._Message(COMPLETED, {
+    'phase': BATCHPRE_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter4'})
+mdb.jobs['Adaptivity-minmax-iter4']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'mojtaba', 'handle': 4692, 
+    'jobName': 'Adaptivity-minmax-iter4'})
+mdb.jobs['Adaptivity-minmax-iter4']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Adaptivity-minmax-iter4'})
+mdb.jobs['Adaptivity-minmax-iter4']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 0, 
+    'jobName': 'Adaptivity-minmax-iter4'})
+mdb.jobs['Adaptivity-minmax-iter4']._Message(STATUS, {'totalTime': 0.0, 
+    'attempts': 0, 'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter4', 'severe': 0, 
+    'iterations': 0, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Adaptivity-minmax-iter4']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'Adaptivity-minmax-iter4', 
+    'memory': 76.0})
+mdb.jobs['Adaptivity-minmax-iter4']._Message(ODB_FRAME, {
+    'phase': STANDARD_PHASE, 'step': 0, 'frame': 1, 
+    'jobName': 'Adaptivity-minmax-iter4'})
+mdb.jobs['Adaptivity-minmax-iter4']._Message(STATUS, {'totalTime': 1.0, 
+    'attempts': 1, 'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 
+    'step': 1, 'jobName': 'Adaptivity-minmax-iter4', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Adaptivity-minmax-iter4']._Message(END_STEP, {
+    'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Adaptivity-minmax-iter4'})
+mdb.jobs['Adaptivity-minmax-iter4']._Message(COMPLETED, {
+    'phase': STANDARD_PHASE, 'message': 'Analysis phase complete', 
+    'jobName': 'Adaptivity-minmax-iter4'})
+mdb.jobs['Adaptivity-minmax-iter4']._Message(JOB_COMPLETED, {
+    'time': 'Fri Apr 10 12:10:04 2020', 'jobName': 'Adaptivity-minmax-iter4'})
+# Save by elmira on 2020_04_10-12.12.15; build 6.14-1 2014_06_04-15.11.02 134264
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.saveAs(pathName='C:/Temp/moj/midmax/model-main.cae')
+# Save by elmira on 2020_04_10-12.12.19; build 6.14-1 2014_06_04-15.11.02 134264
